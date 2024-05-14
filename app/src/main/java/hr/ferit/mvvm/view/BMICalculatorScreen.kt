@@ -9,14 +9,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.NavController
+
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import hr.ferit.mvvm.viewmodel.BMIViewModel
 
 @Composable
-fun BMICalculatorScreen(viewModel: BMIViewModel) {
+fun BMICalculatorScreen(navController: NavController, viewModel: BMIViewModel) {
     var weight by remember { mutableStateOf("") }
     var height by remember { mutableStateOf("") }
     var bmiResult by remember { mutableStateOf<Float?>(null) }
 
+    BackgroundImage(modifier = Modifier.fillMaxSize())
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -56,5 +62,15 @@ fun BMICalculatorScreen(viewModel: BMIViewModel) {
             text = "Your BMI: ${bmiResult?.toString() ?: "N/A"}",
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
+        Button(
+            onClick = {
+                navController.navigate("weather_screen")
+            },
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(16.dp)
+        ) {
+            Text("Weather")
+        }
     }
 }

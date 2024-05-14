@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -13,6 +14,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
+
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -64,6 +67,18 @@ dependencies {
     implementation ("androidx.compose.material:material:1.6.7")
     implementation ("androidx.activity:activity-compose:1.9.0")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    //navigacija
+    implementation ("androidx.navigation:navigation-compose:2.7.7")
+    //autentikacija
+    implementation(libs.firebase.firestore)
+    implementation ("com.google.firebase:firebase-auth-ktx:22.0.0")
+    //retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0") // Gson converter for Retrofit
+
+    // korutine
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
