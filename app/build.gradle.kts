@@ -79,6 +79,9 @@ dependencies {
 
     // korutine
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation ("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
+
+    implementation("io.coil-kt:coil-compose:2.1.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

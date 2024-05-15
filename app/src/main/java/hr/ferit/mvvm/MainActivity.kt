@@ -14,8 +14,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import hr.ferit.mvvm.view.BMICalculatorScreen
 import hr.ferit.mvvm.view.BackgroundImage
-import hr.ferit.mvvm.view.WeatherScreen
+import hr.ferit.mvvm.view.WeatherInfo
+
 import hr.ferit.mvvm.viewmodel.BMIViewModel
+import hr.ferit.mvvm.viewmodel.WeatherViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +29,8 @@ class MainActivity : ComponentActivity() {
                 composable("bmi_calculator") {
                     BMICalculatorScreen(navController = navController, viewModel = BMIViewModel())
                 }
-
-                composable("weather_screen") {
-                    WeatherScreen(navController= navController)
+                composable("weather_info") {
+                    WeatherInfo( viewModel = WeatherViewModel(),navController = navController)
                 }
             }
         }
